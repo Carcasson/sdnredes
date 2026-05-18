@@ -1,0 +1,6 @@
+*.pyc
+__pycache__/
+dte_factura_*.xml
+.env
+venv/
+*.log
