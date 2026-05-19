@@ -1,0 +1,50 @@
+$ docker ps -a
+CONTAINER ID   IMAGE                          COMMAND           CREATED         STATUS                     PORTS     NAMES
+0d5ba0ab07f1   extintores-rivero-app:latest   "python app.py"   5 minutes ago   Exited (0) 5 minutes ago             samplerunning
+
+$ docker logs samplerunning
+==============================================================
+  Extintores de Rivero SpA
+  Modulo WMS & Prefactura Electronica v3.0.0
+  19/05/2026 06:01:04
+==============================================================
+  [DEMO] Modo simulacion activo
+==============================================================
+[INFO] Modo: DEMO
+[INFO] Cliente RUT: 76.534.890-2
+
+──────────────────────────────────────────────────────────────
+  INVENTARIO WMS — BODEGA CENTRAL
+──────────────────────────────────────────────────────────────
+  SKU              Producto                     Stock  Estado
+  EXT-PQS-6KG      Extintor PQS 6KG                84  Optimo
+  EXT-PQS-12KG     Extintor PQS 12KG               47  Optimo
+  EXT-CO2-5KG      Extintor CO2 5KG                31  [ALERTA RECARGA]
+  INS-CILCO2       Cilindros CO2 Recarga            8  [ALERTA RECARGA]
+  INS-VALVULA      Valvulas 1/4 NPT                 3  [ALERTA RECARGA]
+  INS-PQS1KG       Polvo PQS 1KG                   52  Optimo
+
+  Total SKUs  : 6
+  Con alerta  : 3
+
+[1/3] Consultando RUT 76.534.890-2 en SII via SimpleAPI...
+  [DEMO] Simulando consulta a SimpleAPI...
+  Receptor: Maderera del Sur Ltda.
+
+[2/3] Verificando stock para SKU: EXT-PQS-6KG...
+  Stock OK: 81 unidades restantes
+
+[3/3] Generando prefactura...
+
+==========================================================
+  PRE-FACTURA ELECTRONICA
+==========================================================
+  Folio: #2847
+  Emisor: Extintores de Rivero SpA | 76.123.456-7
+  Receptor: Maderera del Sur Ltda. | 76.534.890-2
+  Producto: Extintor PQS 6KG x 3
+  TOTAL: $   149,940 CLP
+==========================================================
+
+[OK] XML guardado: dte_factura_2847_20260519_060104.xml
+[OK] Proceso completado exitosamente
